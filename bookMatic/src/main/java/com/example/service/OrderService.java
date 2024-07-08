@@ -26,7 +26,7 @@ public class OrderService {
     private RentPositionRepository rentPositionRepository;
 
     @Transactional(readOnly = true)
-    public List<Order> getAllRentOrders() {
+    public List<Order> getAllOrders() {
         return orderRepository.findAllWithRentOrderPositionsAndBooks();
     }
 
