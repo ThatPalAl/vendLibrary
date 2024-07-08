@@ -144,8 +144,10 @@ public class ViewDetailsForm extends JFrame {
     private void adjustColumnWidths() {
         TableColumn descriptionColumn = orderDetailsTable.getColumnModel().getColumn(0);
         TableColumn priceColumn = orderDetailsTable.getColumnModel().getColumn(1);
+//        TableColumn amountColumn = orderDetailsTable.getColumnModel().getColumn(3);
 
         descriptionColumn.setPreferredWidth(300);
         priceColumn.setPreferredWidth(50);
+//        amountColumn.setPreferredWidth(50);
     }
 }
