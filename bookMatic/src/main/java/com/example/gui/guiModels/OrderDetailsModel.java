@@ -10,7 +10,7 @@ import java.util.List;
 public class OrderDetailsModel extends AbstractTableModel {
 
     private final List<Order> orders;
-    private final String[] columnNames = {"Order Date", "Bakes", "Total Price"};
+    private final String[] columnNames = {"Order Date", "Books", "Total Price"};
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy:MM:dd-HH:mm");
 
     public OrderDetailsModel(List<Order> orders) throws IllegalArgumentException {

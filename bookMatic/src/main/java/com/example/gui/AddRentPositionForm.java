@@ -28,7 +28,7 @@ class AddRentPositionForm extends JDialog {
         JScrollPane availableBakesScrollPane = new JScrollPane(availableBooksTable);
         add(availableBakesScrollPane, BorderLayout.CENTER);
 
-        JButton addButton = new JButton("Add Selected Bake");
+        JButton addButton = new JButton("Add Selected Boks");
         addButton.addActionListener(e -> addSelectedBook());
         add(addButton, BorderLayout.SOUTH);
     }

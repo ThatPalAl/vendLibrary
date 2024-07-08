@@ -85,6 +85,5 @@ public class MainFrame extends JFrame {
     private void adjustColumnWidths() {
         orderTable.getColumnModel().getColumn(0).setPreferredWidth(100);
         orderTable.getColumnModel().getColumn(1).setPreferredWidth(320);
-        orderTable.getColumnModel().getColumn(2).setPreferredWidth(100);
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 public class MainFrameModel extends AbstractTableModel {
 
     private final List<Order> orders;
-    private final String[] columnNames = {"Order Date", "Bakes"};
+    private final String[] columnNames = {"Order Date", "Books"};
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy:MM:dd-HH:mm");
 
     public MainFrameModel(List<Order> orders) throws IllegalArgumentException {
@@ -35,7 +35,9 @@ public class MainFrameModel extends AbstractTableModel {
         return switch (columnIndex) {
             case 0 -> order.getOrderDate().format(DATE_TIME_FORMATTER);
             case 1 -> order.getRentPositions().stream()
-                    .map(op -> op.getBook().getTitle());
+                    .map(op -> op.getBook().getTitle())
+                    .reduce((b1, b2) -> b1 + ", " + b2)
+                    .orElse("");
             default -> null;
         };
     }
