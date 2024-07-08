@@ -63,6 +63,7 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
 
         createPastOrders(books);
         createLibrarians();
+        createVendingMachines();
 
         logger.info("Data initialization completed.");
     }
@@ -108,5 +109,10 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
     private void createLibrarians() {
         Librarian librarian = new Librarian("Emma", "Stone", LocalDateTime.of(1984, 1, 1, 12, 0), "emma.stone@mail.com", "678909765678", ContractType.PART_TIME, 10000);
         librarianRepository.save(librarian);
+    }
+
+    private void createVendingMachines(){
+        VendingMachine XTB300 = new VendingMachine("XTB300");
+        vendingMachineRepository.save(XTB300);
     }
 }
