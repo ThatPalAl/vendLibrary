@@ -52,7 +52,7 @@ public class ViewDetailsForm extends JFrame {
             }
         }
         System.out.println("view details constructor middle 4 ");
-        orderDetailsModel = new OrderDetailsModel((List<Order>) currentOrder);
+        orderDetailsModel = new OrderDetailsModel(currentOrder); // Pass the single order here
         orderDetailsTable = new JTable(orderDetailsModel);
 
         JScrollPane orderDetailsScrollPane = new JScrollPane(orderDetailsTable);
@@ -73,17 +73,15 @@ public class ViewDetailsForm extends JFrame {
         cancelButton.addActionListener(e -> cancelOrder());
         addPositionPanel.add(cancelButton);
 
-
         add(addPositionPanel, BorderLayout.SOUTH);
         adjustColumnWidths();
     }
 
     private void openAddBakeDialog() {
-        System.out.println("Before openinig add position form");
+        System.out.println("Before opening add position form");
         AddRentPositionForm addPositionForm = new AddRentPositionForm(this, orderService, currentOrder);
         addPositionForm.setVisible(true);
     }
-
 
     private void confirmAndPay() {
         if (currentOrder.getRentPositions().isEmpty()) {
@@ -144,12 +142,10 @@ public class ViewDetailsForm extends JFrame {
     }
 
     private void adjustColumnWidths() {
-        TableColumn descriptionColumn = orderDetailsTable.getColumnModel().getColumn(1);
-        TableColumn priceColumn = orderDetailsTable.getColumnModel().getColumn(2);
-        TableColumn amountColumn = orderDetailsTable.getColumnModel().getColumn(3);
+        TableColumn descriptionColumn = orderDetailsTable.getColumnModel().getColumn(0);
+        TableColumn priceColumn = orderDetailsTable.getColumnModel().getColumn(1);
 
         descriptionColumn.setPreferredWidth(300);
         priceColumn.setPreferredWidth(50);
-        amountColumn.setPreferredWidth(50);
     }
 }
